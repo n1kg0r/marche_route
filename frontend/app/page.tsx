@@ -6,7 +6,6 @@ import "maplibre-gl/dist/maplibre-gl.css";
 
 export default function Home() {
   const [city, setCity] = useState("");
-  const [data, setData] = useState<any>(null);
   const [loading, setLoading] = useState(false);
 
   const [mistralText, setMistralText] = useState<string | null>(null);
@@ -48,7 +47,7 @@ export default function Home() {
 
       // 2. Then call Mistral to turn the JSON into text
       const prompt = `
-        Convert the following JSON route into a human-readable tour description.
+        "You are given a JSON input with a list of locations. These locations are consequential stops on a tour visit of a city. Please respond with a human-readable desription of the tour, listing each stop on a new line and giving each stop a human readable desription."
         JSON: ${JSON.stringify(planJson)}
       `;
       const mistralRes = await callMistral(prompt);

@@ -30,8 +30,8 @@ class PromptRequest(BaseModel):
 
 @app.post("/generate")
 async def generate(req: PromptRequest):
-    print(MISTRAL_API_URL)
-    print(MISTRAL_API_KEY)
+    # print(MISTRAL_API_URL)
+    # print(MISTRAL_API_KEY)
     headers = {
         "Authorization": f"Bearer {MISTRAL_API_KEY}",
         "Content-Type": "application/json"
